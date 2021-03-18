@@ -1,0 +1,20 @@
+semaphore:   A counter bigger than 0 implies that there are free resources that can be used, so the thread
+can access and use one of them. Otherwise, if the counter is 0, the semaphore puts the thread to sleep
+until the counter is greater than 0. A value of 0 in the counter means all the shared resources are used
+by other threads, so the thread that wants to use one of them must wait until one is free.
+
+countDownLatch: a class that allows one or more threads to wait until a set of operations are made.
+This class is initialized with an integer number, which is the number of operations the threads are
+going to wait for. A thread use await() to wait for the execution of these operations, When the
+counter arrives at 0, the class wakes up all the threads that were sleeping in the await() method.
+
+CyclicBarrier: good for divide and conquer project. similar to countDownLatch class but more powerful. see example
+The last threads call await() to wake up all waiting threads to proceed nextRightHalf step. If initialized with a Runnable object
+, after all threads reach await() point, this runnable can be executed.
+
+Phaser:   execute concurrent-phased; no thread will start with the second step until all the threads
+have finished the first one. All tasks have to register with the Phaser, but the total tasks can be increased
+or decreased.
+
+Exchanger: Sync at a specific point for two threads, and exchange info at this point, solving one producer - one consumer problem
+                                                           
